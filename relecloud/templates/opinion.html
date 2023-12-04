@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Opiniones sobre Cruceros - ReleCloud
+{% endblock title %}
+
+{% block content %}
+
+
+    <!-- Formulario para agregar nuevas opiniones -->
+    <h2>Añadir una nueva opinión:</h2>
+
+    <form method="post" action="{% url 'opinion' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar Opinión</button>
+    </form>
+    
+
+{% endblock content %}
