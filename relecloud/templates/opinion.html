@@ -11,7 +11,8 @@ Opiniones sobre Cruceros - ReleCloud
     <!-- Mostrar opiniones existentes -->
     <h2>Opiniones sobre Cruceros:</h2>
     {% for opinion in opinions|slice:"2:"%}
-        <p>{{ opinion.name }} dice: {{ opinion.opinion }}</p>
+        <p><strong>{{ opinion.name }} </strong> dice sobre el crucero <strong>{{ opinion.cruise }}</strong>:</p>
+        <p>{{ opinion.opinion|safe }}</p>
     {% endfor %}
 
 
