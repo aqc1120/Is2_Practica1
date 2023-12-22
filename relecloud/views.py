@@ -1,11 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from . import models
 from django.views import generic
 from django.contrib.messages.views import SuccessMessageMixin
-from .models import Opinion, Cruise
-from .forms import OpinionForm
-
 
 # Create your views here.
 def index(request):
@@ -17,26 +14,6 @@ def about(request):
 def destinations(request):
     all_destinations = models.Destination.objects.all()
     return render(request, 'destinations.html', { 'destinations': all_destinations})
-
-def opinion(request):
-    if request.method == 'POST':
-        form = OpinionForm(request.POST)
-        if form.is_valid():
-            # Guardar la opinión en la base de datos
-            Opinion.objects.create(
-                name=form.cleaned_data['name'],
-                cruise=form.cleaned_data['cruise'],
-                opinion=form.cleaned_data['opinion']
-            )
-            # Redirigir a la misma página después de enviar la opinión
-            return redirect('opinion')
-    else:
-        form = OpinionForm()
-
-    opinions = Opinion.objects.all()
-    cruises = Cruise.objects.all()
-
-    return render(request, 'opinion.html', {'form': form, 'opinions': opinions, 'cruises': cruises})
 
 
 class DestinationDetailView(generic.DetailView):
@@ -55,4 +32,12 @@ class InfoRequestCreate(SuccessMessageMixin, generic.CreateView):
     fields = ['name', 'email', 'cruise', 'notes']
     success_url = reverse_lazy('index')
     success_message = 'Thank you, %(name)s! We will email you when we have more information about %(cruise)s!'
+   
+    send_mail(
+        'Gracias por tu review',
+        'Gracias por tu review, ' + name + '.\n\n' + review,
+        'relecloud40@gmail.com',
+        [email],
+        fail_silently=False,
+    )
 

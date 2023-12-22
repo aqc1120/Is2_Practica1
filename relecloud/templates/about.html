@@ -1,52 +1,12 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Acerca de Relecloud Viajes Espaciales</title>
-    <link href="{% static 'css/about.css' %}" rel="stylesheet"/>
-    <link href="{% static 'css/navbar.css' %}" rel="stylesheet"/>
-    <link href="{% static 'css/footer.css' %}" rel="stylesheet"/>
-</head>
-<body>
-    {% include 'common/navbar.html' %}
-    <section class="Aboutus">
-        <div class="content">
-        <h2>Nuestra Historia</h2>
-        <p>Relecloud es una empresa innovadora de viajes espaciales fundada en 2023. Nuestra historia comienza en la asignatura de IS2, donde un grupo de apasionados por la exploración espacial decidió unirse para hacer realidad el sueño de viajar más allá de la Tierra.</p>
-        <p>Desde entonces, hemos trabajado incansablemente para brindar experiencias únicas en el espacio, permitiendo a las personas explorar lugares como Marte, la Luna y Plutón.</p>
-        <p>Estamos comprometidos con la seguridad, la excelencia y la aventura, y esperamos que te unas a nosotros en esta emocionante travesía por el cosmos.</p>
-        </div>
-    </section>
+{% extends 'base.html' %}
 
+{% block title %}
+ReleCloud - About
+{% endblock %}
 
-    <section class="Rocket">
-        <div class="content">
-        <h2>Nuestro Cohete</h2>
-        <p>El cohete Relecloud es un vehículo de lanzamiento reutilizable de dos etapas diseñado para transportar hasta 100 pasajeros a la órbita terrestre baja. El cohete está diseñado para ser reutilizable, con la primera etapa capaz de regresar a la Tierra y aterrizar verticalmente, y la segunda etapa capaz de realizar múltiples encendidos para colocar la carga útil en órbita.</p>
-        </div>
-    </section>
-
-    <section  class="Destinations">
-        <div class="content_dest">
-        <h2>Nuestros Destinos</h2>
-        <ul class="planet-list">
-            {% for planet in destinations %}
-            <li class="planet-item">
-                <div class="planet-image">
-                    <img src="{% static planet.image %}" alt="{{planet.name}}">
-                </div>
-                <div class="planet-info">
-                    <h3>{{planet.name}}</h3>
-                    <p>{{planet.description}}</p>
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
-        </div>
-        
-    </section>
-    {% include 'common/footer.html' %}
-</body>
-</html>
+{% block content %}
+<h1>About ReleCloud</h1>
+<p>
+Formed in 2021, ReleCloud is a Redmond, WA based company with our head in the clouds - or stars really. We want to offer people the best possible experience for passengers exploring space.
+</p>
+{% endblock content %}

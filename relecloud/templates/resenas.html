@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reseñas de Relecloud Viajes Espaciales</title>
+    <link href="{% static 'css/resenas.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/navbar.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/footer.css' %}" rel="stylesheet"/>
+</head>
+<body>
+{% include 'common/navbar.html' %}
+    <section class="reviews">
+        <div class="content">
+        <h2>Reseñas de Nuestros Clientes</h2>
+        <ul class="resenas">
+            {% for review in reviews %}
+            <li class="resena">
+                <!-- Envuelve el nombre en un div para el tooltip -->
+                <div class="tooltip">
+                    <a href="mailto:{{review.email}}"><strong>{{ review.name }}</strong></a>
+                    <span class="tiptext">{{ review.email }}</span>
+                </div>
+                dijo: "{{ review.review }}"
+            </li>
+            {% endfor %}
+            <br>
+            <li class="resena resena_add">
+                <form action="new_review" method="post">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <div>
+                            <label for="name">Nombre</label>
+                            <input type="text" name="name" id="name">
+                        </div>
+                        <div>
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" name="email" id="email">
+                        </div>
+                    </div>
+                    <label for="review">Reseña</label>
+                    <textarea name="review" id="review"></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+            </li>
+            <br>
+            
+        </ul>
+        </div>
+    </section>
+        {% include 'common/footer.html' %}
+</body>
+</html>
