@@ -1,0 +1,20 @@
+.footer{
+    /* Ocupa el ancho de la pantalla, es negro y esta centrado */
+        width: 100%;
+        background: #242526;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        position: relative;
+        bottom: 0;
+    }
+    
+    /*Hacemos que el footer hacemos un grid con 2 columnas*/
+    .footer .developers {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .footer .developers li{
+        text-decoration: none;
+    }
