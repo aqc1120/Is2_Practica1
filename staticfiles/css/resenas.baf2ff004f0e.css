@@ -1,0 +1,175 @@
+.reviews{
+    height: calc(100vh - 70px);
+    background: url("../images/resenas.a32619e0ef80.webp") no-repeat center/cover;
+    position: relative;
+
+}
+
+.content{
+    position: absolute;
+    top: 54%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 0 30px;
+
+    /* Ponemos un fondo blanco con transparencia y bordes redondos */
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 10px;
+    height: fit-content;
+    width: 80%;
+}
+
+.content h2{
+    font-size: 45px;
+    font-weight: 600;
+    color: #3A3B3C;
+    margin-bottom: 10px;
+}
+.content p{
+    font-size: 20px;
+    font-weight: 500;
+    color: #3A3B3C;
+    margin-bottom: 20px;
+}
+.content .btn{
+    display: inline-block;
+    background: #3A3B3C;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-bottom: 1em;
+}
+
+/* Hacemos que el ul y el il con clase resenas y resena sean comentarios de reseñas*/
+.resenas{
+    /* Quitamos del ul el estilo de lista  y añadimos un borde de 1px */
+    list-style: none;
+}
+.resena{
+    /* Añadimos un borde de 1px */
+    border: 1px solid #3A3B3C;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 1em;
+    text-align: left;
+}
+.resena a{
+    color: #3A3B3C;
+    text-decoration: none;
+}
+
+
+.resena_add {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-center;
+    margin-bottom: 1em;
+    height: fit-content;
+}
+
+.resena_add form {
+    display: flex;
+    flex-direction: column;
+}
+
+.resena_add label,
+.resena_add input,
+.resena_add textarea,
+.resena_add button {
+    margin: 5px 0;
+}
+
+.resena_add .input-group {
+    display: flex;
+    justify-content: space-around;
+}
+
+.resena_add .input-group label,
+.resena_add .input-group input {
+    margin-right: 10px;
+}
+
+/* Ajuste para pantallas más pequeñas */
+@media (max-width: 600px) {
+    .resena_add .input-group {
+        flex-direction: column;
+    }
+}
+
+/* Damos estilo a los input type text and email */
+.resena_add input[type="text"],
+.resena_add input[type="email"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+/* Damos estilo al textarea */
+.resena_add textarea {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /*Ponemos que quepan 3 lineas de texto */
+    height: 5em;
+}
+/* Damos estilo al boton */
+.resena_add button {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #3A3B3C;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+.resena_add button:hover {
+    background-color: #2E2E2E;
+}
+
+
+
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+.tooltip .tiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    padding: 6px 0;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.tooltip .tiptext::after {
+    content: "";
+    position: absolute;
+    border-width: 5px;
+    border-style: solid;
+}
+.tooltip:hover .tiptext {
+    visibility: visible;
+}
+
+.tooltip.top .tiptext{
+    margin-left: -60px;
+    bottom: 150%;
+    left: 50%;
+}
+.tooltip.top .tiptext::after{
+    margin-left: -5px;
+    top: 100%;
+    left: 50%;
+    border-color: #2E2E2E transparent transparent transparent;
+}
+

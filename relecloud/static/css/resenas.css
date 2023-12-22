@@ -1,0 +1,236 @@
+main {
+    background: url(../images/rocket-ship.webp) no-repeat center/cover;
+}
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+
+    .container {
+        background: #242526;
+        padding: 2em;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        color: #fff;
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+/*BOTÓN*/
+
+button {
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: hsl(0deg 0% 0% / 0.25);
+    will-change: transform;
+    transform: translateY(2px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+.edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: linear-gradient(to left,
+            var(--dark-orange) 0%,
+            var(--mid-orange) 8%,
+            var(--mid-orange) 92%,
+            var(--dark-orange) 100%);
+}
+
+.front {
+    display: block;
+    position: relative;
+    padding: 12px 27px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    color: white;
+    background: var(--orange);
+    will-change: transform;
+    transform: translateY(-4px);
+    transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+}
+
+button:hover {
+    filter: brightness(110%);
+}
+
+button:hover .front {
+    transform: translateY(-6px);
+    transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+button:active .front {
+    transform: translateY(-2px);
+    transition: transform 34ms;
+}
+
+button:hover .shadow {
+    transform: translateY(4px);
+    transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+}
+
+button:active .shadow {
+    transform: translateY(1px);
+    transition: transform 34ms;
+}
+
+button:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/*TOOLTIP*/
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tiptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+ul.resenas {
+    list-style: none;
+    border-collapse: collapse;
+    border-radius: 8px;
+    border: 2px solid #fff;
+}
+
+li.resena {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+li.resena:not(:last-child) {
+    border-bottom: 2px solid #fff;
+}
+
+.resena .nombre {
+    min-width: 175px;
+    width: 175px;
+    text-align: left;
+    padding: 0.5em;
+}
+
+.resena .nombre a {
+    color: var(--orange);
+    text-decoration: none;
+    margin: 0.5em;
+}
+
+.resena .nombre a:hover {
+    color: var(--dark-orange);
+}
+
+.resena .opinion {
+    border-left: #fff 2px solid;
+    padding: 0.75em;
+}
+
+/*Formulario*/
+
+.input-wrapper {
+    position: relative;
+    width: 200px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    font-family: 'NASA', sans-serif;
+}
+
+textarea {
+    resize: none;
+    columns: 30;
+}
+
+.input-box {
+    font-size: 16px;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    color: var(--orange);
+    width: 100%;
+    background-color: transparent;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--orange);
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.input-box:focus {
+    border-color: var(--orange);
+    outline: none;
+}
+
+.input-box:focus+.underline {
+    transform: scaleX(1);
+}
