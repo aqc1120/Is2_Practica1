@@ -40,23 +40,25 @@ def new_review(request):
     review.save()
     review = models.Review.objects.all()
 
-    # email_sender = 'relecloud40@gmail.com'
-    # email_password = 'ydxt vwnk kdun vfgz'
-    # email_receiver = email
+    email_sender = 'relecloud40@gmail.com'
+    email_password = 'ydxt vwnk kdun vfgz'
+    email_receiver = email
 
-    # subject = 'Gracias por tu review ' + name
-    # body = 'Gracias por tu review ' + name + '.\n\n' + 'Tu review es: ' + review_txt + '.\n\n' + 'Un saludo.'
+    subject = 'Gracias por tu review ' + name
+    body = 'Gracias por tu review ' + name + '.\n\n' + 'Tu review es: ' + review_txt + '.\n\n' + 'Un saludo.'
 
-    # em = EmailMessage()
-    # em['From'] = email_sender
-    # em['To'] = email_receiver
-    # em['Subject'] = subject
-    # em.set_content(body, 'html')
 
-    # context = ssl.create_default_context()
-    # with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as server:
-    #     server.login(email_sender, email_password)
-    #     server.send_message(email_sender, email_receiver, em.as_string())
-    
+    # Setting up the email message
+    em = EmailMessage()
+    em['From'] = email_sender
+    em['To'] = email_receiver
+    em['Subject'] = subject
+    em.set_content(body)  # Assuming plain text. Change or add HTML here if needed
+
+    # Sending the email
+    context = ssl.create_default_context()
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as server:
+        server.login(email_sender, email_password)
+        server.send_message(em)  # Corrected to pass only the EmailMessage object
 
     return redirect('reviews')
