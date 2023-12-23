@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-xxj^d3s_r-t(#!d$&&qi&hl4k)2r$0g(41buem(413+wp7l=rn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = ['irov-is2-spaceweb.azurewebsites.net']
+#Cambiar el path del host al de deploy
 ALLOWED_HOSTS = ['*']
 
 
