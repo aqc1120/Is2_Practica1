@@ -1,0 +1,31 @@
+footer {
+    width: 100%;
+    background: #242526;
+    color: #fff;
+    font-size: 16px;
+    padding: 1em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4em;
+
+    .logo {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .developers {
+        list-style: none;
+        display: grid;
+        gap: 1em;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .developers li:first-child {
+        text-align: center;
+        grid-column: span 2;
+    }
+}

@@ -1,0 +1,132 @@
+
+
+/* Ponemos al section con class welcome la imagen rocket_bg.webp */
+.Welcome{
+    height: calc(100vh - 70px);
+    background: url("../images/rocket_bg.d8b3ffb87ea2.webp") no-repeat center/cover;
+    position: relative;
+}
+.content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    padding: 0 30px;
+
+    /* Ponemos un fondo blanco con transparencia y bordes redondos */
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 10px;
+    width: auto;
+}
+
+.content h2{
+    font-size: 45px;
+    font-weight: 600;
+    color: #3A3B3C;
+    margin-bottom: 10px;
+}
+.content p{
+    font-size: 20px;
+    font-weight: 500;
+    color: #3A3B3C;
+    margin-bottom: 20px;
+}
+.content .btn{
+    display: inline-block;
+    background: #3A3B3C;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-bottom: 1em;
+}
+
+/* Hacemos que el div entre la seccion de Welcome y review sea una franja que con color engro difumine la transicion de las imagenes de los fondos */
+.Welcome::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+
+/* Ponemos la imagen comments_bg.web al section reviews pero con un efecto de difuminado para el merge de las imagenes */
+.Reviews{
+    height: calc(100vh - 70px);
+    background: url("../images/comments_bg.7ed7aae6ee49.webp") no-repeat center/cover;
+    position: relative;
+}
+.Reviews::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%);
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+.tooltip .tiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    padding: 6px 0;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.tooltip .tiptext::after {
+    content: "";
+    position: absolute;
+    border-width: 5px;
+    border-style: solid;
+}
+.tooltip:hover .tiptext {
+    visibility: visible;
+}
+
+.tooltip.top .tiptext{
+    margin-left: -60px;
+    bottom: 150%;
+    left: 50%;
+}
+.tooltip.top .tiptext::after{
+    margin-left: -5px;
+    top: 100%;
+    left: 50%;
+    border-color: #2E2E2E transparent transparent transparent;
+}
+
+/* Hacemos que el ul y el il con clase resenas y resena sean comentarios de reseñas*/
+.resenas{
+    /* Quitamos del ul el estilo de lista  y añadimos un borde de 1px */
+    list-style: none;
+}
+.resena{
+    /* Añadimos un borde de 1px */
+    border: 1px solid #3A3B3C;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 1em;
+    text-align: left;
+}
+.resena a{
+    color: #3A3B3C;
+    text-decoration: none;
+}
+

@@ -1,12 +1,61 @@
-{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
 
-{% block title %}
-ReleCloud - Expand your horizons
-{% endblock %}
+<html>
 
-{% block content %}
-<h1>Welcome to ReleCloud</h1>
-<p>
-We are the premier space travel company. We have a scheduled first launch in 2030, but why wait? You can learn more about our destinations, and signup to be notified of our first launch. This is a once in a lifetime experience you certainly don't want to miss!
-</p>
-{% endblock content %}
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Relecloud</title>
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/navbar.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/footer.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/common.css' %}" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    {% include 'common/navbar.html' %}
+
+    <main id="top">
+        <section class="welcome">
+            <div>
+                <h2>RELECL<span class="orange">O</span>UD</h2>
+                <p>Descubre los mejores destinos del sistema solar de la mano de los mejores guías.</p>
+                <p>¡Reserva tu viaje hoy mismo con Relecloud!</p>
+                <a class="btn" href="about">Acerca de Nosotros</a>
+            </div>
+        </section>
+
+        <section class="reviews">
+            <div class="container">
+                <h2>Reseñas de Nuestr<span class="orange">o</span>s Clientes</h2>
+                <ul class="resenas">
+                    {% for review in reviews %}
+                    <li class="resena">
+                        <div class="nombre tooltip top">
+                            <a href="mailto:{{review.email}}">
+                                <span>{{ review.name }}</span>
+                            </a>
+                            <span class="tiptext">{{ review.email }}</span>
+                        </div>
+                        <div class="opinion">
+                            "{{ review.review }}"
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <button onclick="window.location.href='reviews'">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <span class="front text"> Escribir reseña</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    {% include 'common/footer.html' %}
+</body>
+
+</html>

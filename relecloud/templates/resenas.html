@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reseñas de Relecloud Viajes Espaciales</title>
+    <link href="{% static 'css/resenas.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/navbar.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/footer.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/common.css' %}" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    {% include 'common/navbar.html' %}
+
+    <main>
+        <section class="reviews">
+            <div class="container">
+                <h2>Añade una Reseña</h2>
+                <form action="new_review" method="post">
+                    {% csrf_token %}
+                    <div class="input-wrapper">
+                        <input class="input-box" type="text" name="name" id="name" placeholder="Nombre" autofocus>
+                        <span class="underline"></span>
+                    </div>
+                    <div class="input-wrapper">
+                        <input class="input-box" type="email" name="email" id="email" placeholder="Email">
+                        <span class="underline"></span>
+                    </div>
+                    <div class="input-wrapper">
+                        <textarea class="input-box" name="review" id="review" placeholder="Review"></textarea>
+                    </div>
+                    <button type="submit">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front text"> Enviar</span>
+                    </button>
+                </form>
+            </div>
+            <div class="container">
+                <h2>Reseñas de Nuestr<span class="orange">o</span>s Clientes</h2>
+                <ul class="resenas">
+                    {% for review in reviews %}
+                    <li class="resena">
+                        <div class="nombre tooltip top">
+                            <a href="mailto:{{review.email}}">
+                                <span>{{ review.name }}</span>
+                            </a>
+                            <span class="tiptext">{{ review.email }}</span>
+                        </div>
+                        <div class="opinion">
+                            "{{ review.review }}"
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    {% include 'common/footer.html' %}
+
+</body>
+
+</html>

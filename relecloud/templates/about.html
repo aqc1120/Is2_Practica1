@@ -1,12 +1,70 @@
-{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
 
-{% block title %}
-ReleCloud - About
-{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Acerca de Relecloud Viajes Espaciales</title>
+    <link href="{% static 'css/about.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/navbar.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/footer.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/common.css' %}" rel="stylesheet" />
+</head>
 
-{% block content %}
-<h1>About ReleCloud</h1>
-<p>
-Formed in 2021, ReleCloud is a Redmond, WA based company with our head in the clouds - or stars really. We want to offer people the best possible experience for passengers exploring space.
-</p>
-{% endblock content %}
+<body>
+    {% include 'common/navbar.html' %}
+
+    <main>
+
+        <section class="aboutus">
+            <div class="container">
+                <h2>Nuestra Hist<span class="orange">o</span>ria</h2>
+                <p>Relecloud es una empresa innovadora de viajes espaciales fundada en 2023. Nuestra historia
+                    comienza
+                    en la asignatura de IS2, donde un grupo de apasionados por la exploración espacial decidió
+                    unirse
+                    para hacer realidad el sueño de viajar más allá de la Tierra.</p>
+                <p>Desde entonces, hemos trabajado incansablemente para brindar experiencias únicas en el espacio,
+                    permitiendo a las personas explorar lugares como Marte, la Luna y Plutón.</p>
+                <p>Estamos comprometidos con la seguridad, la excelencia y la aventura, y esperamos que te unas a
+                    nosotros en esta emocionante travesía por el cosmos.</p>
+            </div>
+        </section>
+
+        <section class="rocket">
+            <div class="container">
+                <h2>Nuestr<span class="orange">o</span> C<span class="orange">o</span>hete</h2>
+                <p>El cohete Relecloud es un vehículo de lanzamiento reutilizable de dos etapas diseñado para
+                    transportar hasta 100 pasajeros a la órbita terrestre baja. El cohete está diseñado para ser
+                    reutilizable, con la primera etapa capaz de regresar a la Tierra y aterrizar verticalmente, y la
+                    segunda etapa capaz de realizar múltiples encendidos para colocar la carga útil en órbita.</p>
+            </div>
+        </section>
+
+        <section class="destinations">
+            <div class="container">
+                <h2>Nuestr<span class="orange">o</span>s Destin<span class="orange">o</span>s</h2>
+                <ul class="planet-list">
+                    {% for planet in destinations %}
+                    <li class="planet-item">
+                        <div class="planet-image">
+                            <img src="{% static planet.image %}" alt="{{planet.name}}">
+                        </div>
+                        <div class="planet-info">
+                            <h3>{{planet.name}}</h3>
+                            <p>{{planet.description}}</p>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+
+    {% include 'common/footer.html' %}
+</body>
+
+</html>
