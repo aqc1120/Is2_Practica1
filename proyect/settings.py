@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-xxj^d3s_r-t(#!d$&&qi&hl4k)2r$0g(41buem(413+wp7l=rn
 DEBUG = False
 
 #Cambiar el path del host al de deploy
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['tejr-space-tours.azurewebsites.net']
 
 
 # Application definition
