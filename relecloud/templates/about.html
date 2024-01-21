@@ -47,7 +47,7 @@
                 <h2>Nuestr<span class="orange">o</span>s Destin<span class="orange">o</span>s</h2>
                 <ul class="planet-list">
                     {% for planet in destinations %}
-                    <li class="planet-item">
+                    <li class="planet-item" onclick="window.location.href='/info/{{planet.id}}'">
                         <div class="planet-info">
                             <h3>{{planet.name}}</h3>
                         </div>

@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Relecloud</title>
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/navbar.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/footer.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/common.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/info.css' %}" rel="stylesheet" />
+
+
+</head>
+
+<body>
+
+    {% include 'common/navbar.html' %}
+
+    <main id="top">
+        <section class="destinations">
+            <div class="container">
+                <h2>Nuestr<span class="orange">o</span>s Destin<span class="orange">o</span>s</h2>
+                <ul class="planet-list">
+                    <li class="planet-item">
+                        <div class="planet-image">
+                            <img src="{% static destination.image %}" alt="{{destination.name}}">
+                        </div>
+                        <div class="planet-info">
+                            <h3>{{destination.name}}</h3>
+                            <p>{{destination.description}}</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    {% include 'common/footer.html' %}
+</body>
+
+</html>

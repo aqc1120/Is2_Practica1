@@ -30,6 +30,7 @@ def reviews(request):
     reviews = models.Review.objects.all()
     return render (request, 'resenas.html', {'reviews':reviews})
 
+
 def new_review(request):
     #Obtenemos del post los datos del formulario nombre y review
     name = request.POST['name']
@@ -62,3 +63,12 @@ def new_review(request):
         server.send_message(em)  # Corrected to pass only the EmailMessage object
 
     return redirect('reviews')
+
+
+def info(request, destination_id):
+    #Obtenemos el destination de la base de datos
+    destination = models.Destination.objects.get(id=destination_id)
+    #Añadimos a todos los destinations la url de las static files que es el name .jpg
+    destination.image = 'images/' + destination.name + '.jpg'
+   
+    return render (request, 'info.html', {'destination':destination,destination.image:destination.image, destination.name:destination.name, destination.description:destination.description, destination.id : destination.id})
