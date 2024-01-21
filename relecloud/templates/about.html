@@ -48,12 +48,8 @@
                 <ul class="planet-list">
                     {% for planet in destinations %}
                     <li class="planet-item">
-                        <div class="planet-image">
-                            <img src="{% static planet.image %}" alt="{{planet.name}}">
-                        </div>
                         <div class="planet-info">
                             <h3>{{planet.name}}</h3>
-                            <p>{{planet.description}}</p>
                         </div>
                     </li>
                     {% endfor %}
