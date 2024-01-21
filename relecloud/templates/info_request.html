@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Info Relecloud Viajes Espaciales</title>
+    <link href="{% static 'css/resenas.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/navbar.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/footer.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/common.css' %}" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    {% include 'common/navbar.html' %}
+
+    <main>
+        <section class="reviews">
+            <div class="container">
+                <h2>Solicita más informacion</h2>
+                <form action="new_info_request" method="post">
+                    {% csrf_token %}
+                    <div class="input-wrapper">
+                        <input class="input-box" type="text" name="name" id="name" placeholder="Nombre" autofocus>
+                        <span class="underline"></span>
+                    </div>
+                    <div class="input-wrapper">
+                        <input class="input-box" type="email" name="email" id="email" placeholder="Email">
+                        <span class="underline"></span>
+                    </div>
+                    <div class="input-wrapper">
+                        <textarea class="input-box" name="info_request" id="info_request" placeholder="Solicitud"></textarea>
+                    </div>
+                    <button type="submit">
+                        <span class="shadow"></span>
+                        <span class="edge"></span>
+                        <span class="front text"> Enviar</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    {% include 'common/footer.html' %}
+
+</body>
+
+</html>
