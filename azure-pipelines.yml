@@ -11,13 +11,13 @@ variables:
   azureServiceConnectionId: '64dbe3e5-584b-44c9-9c2f-c76c1559c502'
 
   # Web app name
-  webAppName: 'tejr-space-tours'
+  webAppName: ' alejandroquiroz-is2'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
   # Environment name
-  environmentName: 'tejr-space-tours'
+  environmentName: ' alejandroquiroz-is2'
 
   # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
@@ -80,7 +80,7 @@ stages:
             displayName: 'Use Python version'
 
           - task: AzureWebApp@1
-            displayName: 'Deploy Azure Web App : tejr-space-tours'
+            displayName: 'Deploy Azure Web App :  alejandroquiroz-is2'
             inputs:
               azureSubscription: $(azureServiceConnectionId)
               appName: $(webAppName)
